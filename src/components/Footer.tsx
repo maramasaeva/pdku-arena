@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="relative z-[2] text-center py-16 px-6 sm:px-12 lg:px-20 text-white/20 text-xs tracking-widest">
+    <footer className="relative z-[2] text-center py-16 text-white/20 text-xs tracking-widest page-container">
       <div className="neon-divider mb-10" />
       <p>
         <span className="text-neon-cyan/50">pdku</span>

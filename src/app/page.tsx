@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="min-h-[90vh] flex flex-col items-center justify-center text-center px-6 sm:px-12 lg:px-20 py-28">
+      <section className="min-h-[90vh] flex flex-col items-center justify-center text-center py-28">
         <div className="font-mono text-xs tracking-[0.25em] uppercase text-neon-teal/60 mb-8">
           plzdontkillus &mdash; berkeley, july 2026
         </div>
@@ -46,10 +46,10 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="neon-divider mx-6 sm:mx-12 lg:mx-20" />
+      <div className="neon-divider" />
 
       {/* Poll Categories Preview */}
-      <section className="py-24 px-6 sm:px-12 lg:px-20">
+      <section className="py-24">
         <div className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30 mb-4">
           Poll Categories
         </div>
@@ -77,10 +77,10 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="neon-divider mx-6 sm:mx-12 lg:mx-20" />
+      <div className="neon-divider" />
 
       {/* Participants Grid */}
-      <section className="py-24 px-6 sm:px-12 lg:px-20">
+      <section className="py-24">
         <div className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30 mb-4">
           The Contestants
         </div>
@@ -122,10 +122,10 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="neon-divider mx-6 sm:mx-12 lg:mx-20" />
+      <div className="neon-divider" />
 
       {/* How it works */}
-      <section className="py-24 px-6 sm:px-12 lg:px-20">
+      <section className="py-24">
         <div className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30 mb-4">
           How It Works
         </div>
@@ -150,10 +150,10 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="neon-divider mx-6 sm:mx-12 lg:mx-20" />
+      <div className="neon-divider" />
 
       {/* CTA */}
-      <section className="py-28 px-6 sm:px-12 lg:px-20 text-center">
+      <section className="py-28 text-center">
         <h2 className="font-display font-bold text-[clamp(2.5rem,6vw,5rem)] leading-tight neon-cyan mb-8">
           the arena awaits
         </h2>

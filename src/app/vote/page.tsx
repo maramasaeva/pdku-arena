@@ -111,7 +111,7 @@ export default function VotePage() {
   const activeCat = POLL_CATEGORIES.find(c => c.id === activeCategory)!
 
   return (
-    <div className="min-h-screen px-6 sm:px-12 lg:px-20 py-12">
+    <div className="min-h-screen py-12">
       <div className="mb-10">
         <div className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30 mb-3">
           Daily Polls

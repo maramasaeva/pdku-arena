@@ -30,7 +30,9 @@ export default function RootLayout({
         <BlobBackground />
         <Nav />
         <main className="relative z-[2] flex-1 pt-14">
-          {children}
+          <div className="page-container">
+            {children}
+          </div>
         </main>
         <Footer />
       </body>

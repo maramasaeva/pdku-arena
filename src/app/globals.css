@@ -170,6 +170,14 @@ body {
 .neon-green { color: var(--neon-green); text-shadow: 0 0 20px rgba(20,240,176,0.3); }
 .neon-purple { color: var(--neon-purple); text-shadow: 0 0 20px rgba(176,38,255,0.3); }
 
+/* Page container */
+.page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: clamp(1.5rem, 5vw, 5rem);
+  padding-right: clamp(1.5rem, 5vw, 5rem);
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
