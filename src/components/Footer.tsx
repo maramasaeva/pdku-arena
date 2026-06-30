@@ -17,6 +17,10 @@ export default function Footer() {
         <Link href="/leaderboard?profile=p-12" className="text-neon-cyan/60 hover:text-neon-cyan transition-colors">
           Messier
         </Link>
+        {' & '}
+        <Link href="/leaderboard?profile=p-40" className="text-neon-pink/60 hover:text-neon-pink transition-colors">
+          Kat
+        </Link>
       </p>
     </footer>
   )
