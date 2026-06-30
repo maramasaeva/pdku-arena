@@ -8,6 +8,11 @@ export interface Participant {
     instagram?: string
     website?: string
     tiktok?: string
+    youtube?: string
+    substack?: string
+    bandcamp?: string
+    letterboxd?: string
+    music?: string
   }
 }
 

@@ -54,16 +54,21 @@ export default function ParticipantCard({
             </p>
           )}
           {participant.socials && Object.keys(participant.socials).length > 0 && (
-            <div className="flex gap-2 mt-1.5">
+            <div className="flex gap-2 mt-1.5 flex-wrap">
               {participant.socials.twitter && (
-                <a
-                  href={`https://x.com/${participant.socials.twitter}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs text-white/30 hover:text-neon-cyan transition-colors"
-                >
-                  @{participant.socials.twitter}
-                </a>
+                <a href={`https://x.com/${participant.socials.twitter}`} target="_blank" rel="noopener noreferrer" className="text-xs text-white/30 hover:text-neon-cyan transition-colors">X</a>
+              )}
+              {participant.socials.instagram && (
+                <a href={`https://instagram.com/${participant.socials.instagram}`} target="_blank" rel="noopener noreferrer" className="text-xs text-white/30 hover:text-neon-pink transition-colors">IG</a>
+              )}
+              {participant.socials.youtube && (
+                <a href={participant.socials.youtube} target="_blank" rel="noopener noreferrer" className="text-xs text-white/30 hover:text-[#ff0000] transition-colors">YT</a>
+              )}
+              {participant.socials.website && (
+                <a href={participant.socials.website} target="_blank" rel="noopener noreferrer" className="text-xs text-white/30 hover:text-neon-green transition-colors">Web</a>
+              )}
+              {participant.socials.substack && (
+                <a href={participant.socials.substack} target="_blank" rel="noopener noreferrer" className="text-xs text-white/30 hover:text-neon-yellow transition-colors">Sub</a>
               )}
             </div>
           )}

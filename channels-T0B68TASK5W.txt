@@ -1,0 +1,42 @@
+ID           Arch  What
+C0B5EJRF4M8  -     #announcements
+C0B5EJRFL9G  arch  #social (archived)
+C0B5GFZ4N2V  arch  #new-channel (archived)
+C0BB4499517  -     #introductions
+C0BBE7HEPK3  -     #random
+C0BBFL68L57  -     🔒 mara-masaeva-x-pdku-team
+C0BBTR5JF7W  -     #content-analysis
+C0BCDUBPREU  -     #discussion
+C0BCZT4GVGW  -     #ask-ai-experts
+D0BCP72LD99  -     @<external>:U0BCTEQ6ZD4
+D0BC62XNPMW  -     @<external>:USLACK
+D0BBZ9B3LUQ  -     @<external>:U0B742AUQ23
+D0BBZ9B0JJU  -     @<external>:U0BAXNGMMRR
+D0BBZ99QZ32  -     @<external>:U0B512FSFHD
+D0BBDHS484A  -     @<external>:U0BBA5W68AH
+D0BB8KG0M7W  -     @<external>:U0B5B7G639B
+D0BB8KFRMJQ  -     @<external>:U0B74EB5491
+D0BB8KFJ9MJ  -     @<external>:U0B8DQB2924
+D0BB8KF8Q92  -     @<external>:U0BB21HMQLE
+D0BB7N75CDA  -     @<external>:USLACKBOT
+D0BB77G2VHR  -     @<external>:U0BB77DN327
+D0BB6TDDPSP  -     @<external>:U0BBGT1TXQC
+D0BB6RR2HC1  -     @<external>:U0BAXNG1NSX
+D0BB6RPLHED  -     @<external>:U0BB7N6R752
+D0BB60SEJ5U  -     @<external>:U0BB5UH3Q6M
+D0BB511BLKC  -     @<external>:U0B8B582HK8
+D0BB5119M6W  -     @<external>:U0BB21PJS3G
+D0BB2UDK3E2  -     @<external>:U0B68VC1H96
+D0BB2UCTRQW  -     @<external>:U0BAXNHCZ51
+D0BB2UCSS3Y  -     @<external>:U0BANK7A4KH
+D0BB1JRAGTX  -     @<external>:U0BB7N6315J
+D0BB1JR7ALD  -     @<external>:U0BB21Q5LDU
+D0BAYKUR8UT  -     @<external>:U0B5H1F78M7
+D0BAYKULETV  -     @<external>:U0B8DHETW00
+D0BAYKU6GKV  -     @<external>:U0BB43R09UJ
+D0BAYKTTZDZ  -     @<external>:U0BB7N61B8U
+D0BAYKTKURZ  -     @<external>:U0BB21Q3LTY
+D0BAYKTBLR1  -     @<external>:U0BANK8500P
+D0BAPGH4EJ3  -     @<external>:U0B7H9E1VKQ
+D0BAPGGNMFZ  -     @<external>:U0BANK6Q4ET
+D0BANK8M17H  -     @<external>:U0BBYC2TJMN

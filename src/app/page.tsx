@@ -83,23 +83,31 @@ export default function Home() {
           who enters the arena?
         </h2>
         <p className="text-sm text-white/40 max-w-md mb-10">
-          The creators of plzdontkillus. Profiles and photos coming soon.
+          {PARTICIPANTS.length} creators enter the arena. July 2026, Berkeley.
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 stagger-children">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
           {PARTICIPANTS.map((p, i) => (
-            <div key={p.id} className="glass-card p-4 text-center fade-in-up group">
-              <div className="w-20 h-20 mx-auto rounded-xl overflow-hidden border-2 border-white/10 group-hover:border-neon-cyan/40 transition-colors bg-white/5 mb-3">
+            <div key={p.id} className="glass-card p-3 text-center group" style={{ animationDelay: `${Math.min(i * 30, 500)}ms` }}>
+              <div className="w-14 h-14 mx-auto rounded-lg overflow-hidden border-2 border-white/10 group-hover:border-neon-cyan/40 transition-colors bg-white/5 mb-2">
                 {p.photo_url ? (
                   <img src={p.photo_url} alt={p.name} className="w-full h-full object-cover" />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-3xl text-white/10">
+                  <div className="w-full h-full flex items-center justify-center text-lg text-white/15 font-mono">
                     {i + 1}
                   </div>
                 )}
               </div>
-              <h3 className="font-bold text-sm">{p.name}</h3>
-              <p className="text-xs text-white/30 mt-1">{p.bio}</p>
+              <h3 className="font-bold text-xs leading-tight">{p.name}</h3>
+              <p className="text-[10px] text-white/25 mt-0.5 line-clamp-2">{p.bio}</p>
+              {Object.keys(p.socials).length > 0 && (
+                <div className="flex gap-1.5 justify-center mt-1.5">
+                  {p.socials.twitter && <a href={`https://x.com/${p.socials.twitter}`} target="_blank" rel="noopener noreferrer" className="text-[10px] text-white/20 hover:text-neon-cyan transition-colors">X</a>}
+                  {p.socials.instagram && <a href={`https://instagram.com/${p.socials.instagram}`} target="_blank" rel="noopener noreferrer" className="text-[10px] text-white/20 hover:text-neon-pink transition-colors">IG</a>}
+                  {p.socials.youtube && <a href={p.socials.youtube} target="_blank" rel="noopener noreferrer" className="text-[10px] text-white/20 hover:text-[#ff0000] transition-colors">YT</a>}
+                  {p.socials.website && <a href={p.socials.website} target="_blank" rel="noopener noreferrer" className="text-[10px] text-white/20 hover:text-neon-green transition-colors">Web</a>}
+                </div>
+              )}
             </div>
           ))}
         </div>
