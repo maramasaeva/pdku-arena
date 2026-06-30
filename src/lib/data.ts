@@ -12,7 +12,7 @@ export const PARTICIPANTS: Participant[] = [
   { id: 'p-9', name: 'Eugene', bio: 'Social butterfly, 23. Into nuance, behavioral biology, and fighting for people left behind.', photo_url: '', socials: { instagram: 'eugene_affirmative' } },
   { id: 'p-10', name: 'Aaron Silverbook', bio: 'Shared website only, no detailed intro.', photo_url: '', socials: { website: 'http://AaronSilverbook.com' } },
   { id: 'p-11', name: 'KT', bio: 'Based in Budapest. Human psychology, group dynamics. Cozy introvert vibes.', photo_url: '', socials: {} },
-  { id: 'p-12', name: 'Mara (messier)', bio: 'From Leuven, Belgium. AI engineer & creative technologist, music producer.', photo_url: '', socials: { twitter: 'rssmrm', instagram: 'mara.ipynb', website: 'https://messier-systems.vercel.app/', bandcamp: 'https://mmessier.bandcamp.com/music' } },
+  { id: 'p-12', name: 'Messier', bio: 'From Leuven, Belgium. AI engineer & creative technologist, music producer.', photo_url: '', socials: { twitter: 'rssmrm', instagram: 'mara.ipynb', website: 'https://messier-systems.vercel.app/', bandcamp: 'https://mmessier.bandcamp.com/music' } },
   { id: 'p-13', name: 'Isabel', bio: 'From Australia, based in Singapore. Creative technologist. Built napole0n.ai.', photo_url: '', socials: { instagram: 'artificial.isabel', website: 'https://napole0n.ai' } },
   { id: 'p-14', name: 'Jessiah', bio: 'From Mendocino, CA. Former English lit teacher, now data science. Life coach and basketball coach.', photo_url: '', socials: { instagram: 'jamellott23', website: 'http://gensilverjess.com' } },
   { id: 'p-15', name: 'Avisha', bio: 'Based in NY. Signal processing + AI dev. Runs @distilledscience for science education.', photo_url: '', socials: { instagram: 'distilledscience' } },
@@ -42,7 +42,7 @@ export const PARTICIPANTS: Participant[] = [
   { id: 'p-39', name: 'Josh', bio: 'Founded UBC AI safety group. AI governance research, now making TikToks about AI safety.', photo_url: '', socials: { instagram: 'joshthor_', website: 'http://ubcaisafety.org' } },
   { id: 'p-40', name: 'Kat (the vat)', bio: 'Multi-disciplinary creator, 25. Into ARGs, DAOs, networked organisms. Video editor, IRL streamer.', photo_url: '', socials: { youtube: 'https://youtu.be/j4d1a2H_FHE' } },
   { id: 'p-41', name: 'Camden', bio: 'Based in Boston, 23. CS grad. Music producer (hyperpop/math-rock/metal), theater, improv.', photo_url: '', socials: { instagram: 'camdenwyeth', youtube: 'https://youtu.be/iovJpHcXlxQ' } },
-  { id: 'p-42', name: 'Azmyth', bio: 'Staff and fellow. Bay Area. Makes magic cloaks (Mysticloak). Circling, fusion dancing, DJing.', photo_url: '', socials: {} },
+  // Azmyth — PDKU staff, excluded from voting
   { id: 'p-43', name: 'Loan (DD)', bio: 'From Vietnam, based in Seattle. ML forecasting at Google/Apple. 3D printing, yoga, aerial.', photo_url: '', socials: {} },
 ]
 

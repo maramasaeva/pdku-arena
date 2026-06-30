@@ -4,12 +4,15 @@ import { useState, useEffect } from 'react'
 import { PARTICIPANTS, POLL_CATEGORIES } from '@/lib/data'
 import { supabase } from '@/lib/supabase'
 import ParticipantCard from '@/components/ParticipantCard'
+import ProfileModal from '@/components/ProfileModal'
+import type { Participant } from '@/lib/types'
 import type { User } from '@supabase/supabase-js'
 
 export default function VotePage() {
   const [user, setUser] = useState<User | null>(null)
   const [activeCategory, setActiveCategory] = useState(POLL_CATEGORIES[0].id)
   const [votes, setVotes] = useState<Record<string, string>>({})
+  const [selectedProfile, setSelectedProfile] = useState<Participant | null>(null)
   const [submitting, setSubmitting] = useState(false)
   const [results, setResults] = useState<Record<string, Record<string, number>>>({})
 
@@ -108,21 +111,21 @@ export default function VotePage() {
   const activeCat = POLL_CATEGORIES.find(c => c.id === activeCategory)!
 
   return (
-    <div className="min-h-screen px-[4vw] md:px-[6vw] py-10">
-      <div className="mb-8">
-        <div className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30 mb-2">
+    <div className="min-h-screen px-6 sm:px-12 lg:px-20 py-12">
+      <div className="mb-10">
+        <div className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30 mb-3">
           Daily Polls
         </div>
-        <h1 className="font-display font-bold text-[clamp(2rem,5vw,3.5rem)] leading-tight neon-cyan mb-1">
+        <h1 className="font-display font-bold text-[clamp(2rem,5vw,3.5rem)] leading-tight neon-cyan mb-2">
           cast your vote
         </h1>
-        <p className="text-sm text-white/40">
+        <p className="text-sm text-white/40 leading-relaxed">
           {user ? 'One vote per category per day. Choose wisely.' : 'Sign in to start voting.'}
         </p>
       </div>
 
       {/* Category tabs */}
-      <div className="flex gap-2 overflow-x-auto pb-4 mb-8 -mx-2 px-2">
+      <div className="flex gap-3 overflow-x-auto pb-4 mb-10 -mx-2 px-2">
         {POLL_CATEGORIES.map(cat => (
           <button
             key={cat.id}
@@ -143,12 +146,12 @@ export default function VotePage() {
       </div>
 
       {/* Active category */}
-      <div className="mb-6">
-        <h2 className="font-bold text-xl mb-1 flex items-center gap-2">
+      <div className="mb-8">
+        <h2 className="font-bold text-xl mb-2 flex items-center gap-3">
           <span className="text-2xl">{activeCat.icon}</span>
           {activeCat.name}
         </h2>
-        <p className="text-sm text-white/35">{activeCat.description}</p>
+        <p className="text-sm text-white/35 leading-relaxed">{activeCat.description}</p>
         {votes[activeCategory] && (
           <div className="mt-3 inline-flex items-center gap-2 bg-neon-cyan/10 border border-neon-cyan/20 rounded-full px-4 py-1.5 text-xs font-mono text-neon-cyan">
             <span>&#10003;</span> You voted today
@@ -157,7 +160,7 @@ export default function VotePage() {
       </div>
 
       {/* Participant voting list */}
-      <div className="grid gap-3 max-w-2xl stagger-children">
+      <div className="grid gap-4 max-w-2xl stagger-children">
         {PARTICIPANTS
           .map(p => ({
             participant: p,
@@ -172,6 +175,7 @@ export default function VotePage() {
               showVoteButton
               voted={votes[activeCategory] === participant.id}
               onVote={() => castVote(activeCategory, participant.id)}
+              onProfileClick={() => setSelectedProfile(participant)}
             />
           ))}
       </div>
@@ -181,6 +185,10 @@ export default function VotePage() {
           <p className="text-white/30 text-sm mb-4">Sign in to cast your votes</p>
           <p className="text-xs text-white/20">Use the &ldquo;Sign in to Vote&rdquo; button in the top nav</p>
         </div>
+      )}
+
+      {selectedProfile && (
+        <ProfileModal participant={selectedProfile} onClose={() => setSelectedProfile(null)} />
       )}
     </div>
   )

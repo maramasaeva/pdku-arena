@@ -10,6 +10,7 @@ interface Props {
   voted?: boolean
   showVoteButton?: boolean
   compact?: boolean
+  onProfileClick?: () => void
 }
 
 export default function ParticipantCard({
@@ -20,17 +21,21 @@ export default function ParticipantCard({
   voted,
   showVoteButton,
   compact,
+  onProfileClick,
 }: Props) {
   return (
-    <div className={`glass-card p-4 ${compact ? 'p-3' : 'p-5'} relative group`}>
+    <div className={`glass-card ${compact ? 'p-4' : 'p-5 sm:p-6'} relative group`}>
       {rank !== undefined && (
         <div className="absolute -top-3 -left-1 font-mono font-bold text-2xl neon-cyan z-10">
           #{rank}
         </div>
       )}
 
-      <div className="flex items-center gap-4">
-        <div className={`${compact ? 'w-12 h-12' : 'w-16 h-16'} rounded-xl overflow-hidden border-2 border-white/10 group-hover:border-neon-cyan/40 transition-colors flex-shrink-0 bg-white/5`}>
+      <div className="flex items-center gap-4 sm:gap-5">
+        <div
+          onClick={onProfileClick}
+          className={`${compact ? 'w-12 h-12' : 'w-16 h-16'} rounded-xl overflow-hidden border-2 border-white/10 group-hover:border-neon-cyan/40 transition-colors flex-shrink-0 bg-white/5 ${onProfileClick ? 'cursor-pointer' : ''}`}
+        >
           {participant.photo_url ? (
             <img
               src={participant.photo_url}
@@ -45,16 +50,19 @@ export default function ParticipantCard({
         </div>
 
         <div className="flex-1 min-w-0">
-          <h3 className={`font-bold ${compact ? 'text-sm' : 'text-base'} truncate`}>
+          <h3
+            onClick={onProfileClick}
+            className={`font-bold ${compact ? 'text-sm' : 'text-base'} truncate ${onProfileClick ? 'cursor-pointer hover:text-neon-cyan transition-colors' : ''}`}
+          >
             {participant.name}
           </h3>
           {!compact && participant.bio && (
-            <p className="text-xs text-white/40 mt-0.5 line-clamp-2">
+            <p className="text-xs text-white/40 mt-1 leading-relaxed line-clamp-2">
               {participant.bio}
             </p>
           )}
           {participant.socials && Object.keys(participant.socials).length > 0 && (
-            <div className="flex gap-2 mt-1.5 flex-wrap">
+            <div className="flex gap-3 mt-2 flex-wrap">
               {participant.socials.twitter && (
                 <a href={`https://x.com/${participant.socials.twitter}`} target="_blank" rel="noopener noreferrer" className="text-xs text-white/30 hover:text-neon-cyan transition-colors">X</a>
               )}

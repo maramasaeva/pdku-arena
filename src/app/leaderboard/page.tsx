@@ -4,6 +4,8 @@ import { useState, useEffect, useMemo } from 'react'
 import { PARTICIPANTS, POLL_CATEGORIES, NEON_COLORS } from '@/lib/data'
 import { supabase } from '@/lib/supabase'
 import ParticipantCard from '@/components/ParticipantCard'
+import ProfileModal from '@/components/ProfileModal'
+import type { Participant } from '@/lib/types'
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell, Legend,
@@ -18,6 +20,7 @@ export default function LeaderboardPage() {
   const [results, setResults] = useState<Record<string, Record<string, number>>>({})
   const [trendData, setTrendData] = useState<Record<string, string | number>[]>([])
   const [showJury, setShowJury] = useState(false)
+  const [selectedProfile, setSelectedProfile] = useState<Participant | null>(null)
 
   useEffect(() => {
     loadResults()
@@ -107,21 +110,21 @@ export default function LeaderboardPage() {
   const activeCat = POLL_CATEGORIES.find(c => c.id === activeCategory)!
 
   return (
-    <div className="min-h-screen px-[4vw] md:px-[6vw] py-10">
-      <div className="mb-8">
-        <div className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30 mb-2">
+    <div className="min-h-screen px-6 sm:px-12 lg:px-20 py-12">
+      <div className="mb-10">
+        <div className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30 mb-3">
           Live Results
         </div>
-        <h1 className="font-display font-bold text-[clamp(2rem,5vw,3.5rem)] leading-tight neon-pink mb-1">
+        <h1 className="font-display font-bold text-[clamp(2rem,5vw,3.5rem)] leading-tight neon-pink mb-2">
           leaderboard
         </h1>
-        <p className="text-sm text-white/40">
+        <p className="text-sm text-white/40 leading-relaxed">
           Real-time sentiment tracking across all categories.
         </p>
       </div>
 
       {/* Category tabs */}
-      <div className="flex gap-2 overflow-x-auto pb-4 mb-6 -mx-2 px-2">
+      <div className="flex gap-3 overflow-x-auto pb-4 mb-8 -mx-2 px-2">
         {POLL_CATEGORIES.map(cat => (
           <button
             key={cat.id}
@@ -331,7 +334,7 @@ export default function LeaderboardPage() {
         <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30 mb-4">
           Rankings &mdash; {activeCat.name}
         </h3>
-        <div className="grid gap-3 stagger-children">
+        <div className="grid gap-4 stagger-children">
           {chartData.map((d, i) => {
             const participant = PARTICIPANTS.find(p => p.id === d.id)!
             return (
@@ -341,11 +344,16 @@ export default function LeaderboardPage() {
                 rank={i + 1}
                 percentage={d.pct}
                 compact
+                onProfileClick={() => setSelectedProfile(participant)}
               />
             )
           })}
         </div>
       </div>
+
+      {selectedProfile && (
+        <ProfileModal participant={selectedProfile} onClose={() => setSelectedProfile(null)} />
+      )}
     </div>
   )
 }
