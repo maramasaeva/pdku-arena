@@ -1,65 +1,147 @@
-import Image from "next/image";
+'use client'
+
+import Link from 'next/link'
+import { PARTICIPANTS, POLL_CATEGORIES } from '@/lib/data'
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen">
+      {/* Hero */}
+      <section className="min-h-[90vh] flex flex-col items-center justify-center text-center px-[6vw] py-24">
+        <div className="font-mono text-xs tracking-[0.25em] uppercase text-neon-teal/60 mb-6">
+          plzdontkillus &mdash; berkeley, july 2026
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <h1 className="font-display font-bold text-[clamp(3.5rem,12vw,10rem)] leading-[0.95] tracking-tighter mb-6">
+          <span className="neon-cyan">pdku</span>
+          <span className="neon-pink">:</span>
+          <br className="sm:hidden" />
+          <span className="neon-yellow">arena</span>
+        </h1>
+
+        <p className="text-[clamp(1rem,2vw,1.3rem)] font-light max-w-lg leading-relaxed text-white/50 mb-4">
+          The <strong className="font-semibold text-neon-cyan">people&apos;s court</strong> decides.
+          Vote daily. Track sentiment. See who the audience loves
+          &mdash; and whether the <em className="text-neon-pink font-normal">jury</em> agrees.
+        </p>
+
+        <div className="font-mono text-xs tracking-[0.15em] uppercase text-neon-green/50 mb-10">
+          real-time polls <span className="mx-2 opacity-30">/</span>
+          live visualizations <span className="mx-2 opacity-30">/</span>
+          {POLL_CATEGORIES.length} categories
         </div>
-      </main>
+
+        <div className="flex gap-4 flex-wrap justify-center">
+          <Link href="/vote" className="glow-btn">
+            Cast Your Vote
+          </Link>
+          <Link href="/leaderboard" className="glow-btn glow-btn-pink">
+            Leaderboard
+          </Link>
+        </div>
+      </section>
+
+      <div className="neon-divider" />
+
+      {/* Poll Categories Preview */}
+      <section className="py-20 px-[6vw]">
+        <div className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30 mb-3">
+          Poll Categories
+        </div>
+        <h2 className="font-display font-bold text-[clamp(2rem,5vw,3.5rem)] leading-tight neon-cyan mb-2">
+          8 ways to judge
+        </h2>
+        <p className="text-sm text-white/40 max-w-md mb-10">
+          Vote in every category, every day. Your voice shapes the leaderboard.
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 stagger-children">
+          {POLL_CATEGORIES.map(cat => (
+            <Link
+              key={cat.id}
+              href={`/vote#${cat.slug}`}
+              className="glass-card p-5 fade-in-up group"
+            >
+              <div className="text-3xl mb-3">{cat.icon}</div>
+              <h3 className="font-bold text-sm mb-1 group-hover:text-neon-cyan transition-colors">
+                {cat.name}
+              </h3>
+              <p className="text-xs text-white/35">{cat.description}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <div className="neon-divider" />
+
+      {/* Participants Grid */}
+      <section className="py-20 px-[6vw]">
+        <div className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30 mb-3">
+          The Contestants
+        </div>
+        <h2 className="font-display font-bold text-[clamp(2rem,5vw,3.5rem)] leading-tight neon-pink mb-2">
+          who enters the arena?
+        </h2>
+        <p className="text-sm text-white/40 max-w-md mb-10">
+          The creators of plzdontkillus. Profiles and photos coming soon.
+        </p>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 stagger-children">
+          {PARTICIPANTS.map((p, i) => (
+            <div key={p.id} className="glass-card p-4 text-center fade-in-up group">
+              <div className="w-20 h-20 mx-auto rounded-xl overflow-hidden border-2 border-white/10 group-hover:border-neon-cyan/40 transition-colors bg-white/5 mb-3">
+                {p.photo_url ? (
+                  <img src={p.photo_url} alt={p.name} className="w-full h-full object-cover" />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-3xl text-white/10">
+                    {i + 1}
+                  </div>
+                )}
+              </div>
+              <h3 className="font-bold text-sm">{p.name}</h3>
+              <p className="text-xs text-white/30 mt-1">{p.bio}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div className="neon-divider" />
+
+      {/* How it works */}
+      <section className="py-20 px-[6vw]">
+        <div className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30 mb-3">
+          How It Works
+        </div>
+        <h2 className="font-display font-bold text-[clamp(2rem,5vw,3.5rem)] leading-tight neon-yellow mb-10">
+          cast judgment
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
+          {[
+            { title: 'Sign in', desc: 'One-click with Google or X. We only use it to keep votes honest — one vote per person per day.' },
+            { title: 'Vote daily', desc: 'Pick your favorites across all 8 categories. Come back every day as the dynamics shift.' },
+            { title: 'Watch the charts', desc: 'Real-time visualizations track public sentiment over the entire month. See if the jury agrees.' },
+          ].map((step, i) => (
+            <div key={i} className="glass-card p-6 pt-10 relative">
+              <div className="absolute -top-4 left-6 font-mono font-extrabold text-3xl neon-cyan">
+                {i + 1}
+              </div>
+              <h3 className="font-bold text-base mb-2">{step.title}</h3>
+              <p className="text-sm text-white/40 leading-relaxed">{step.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 px-[6vw] text-center">
+        <h2 className="font-display font-bold text-[clamp(2.5rem,6vw,5rem)] leading-tight neon-cyan mb-6">
+          the arena awaits
+        </h2>
+        <Link href="/vote" className="glow-btn text-lg !py-5 !px-14">
+          Enter the Arena
+        </Link>
+      </section>
     </div>
-  );
+  )
 }
