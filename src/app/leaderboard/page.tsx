@@ -110,12 +110,12 @@ export default function LeaderboardPage() {
   const activeCat = POLL_CATEGORIES.find(c => c.id === activeCategory)!
 
   return (
-    <div className="min-h-screen py-12">
-      <div className="mb-10">
+    <div className="min-h-screen pt-16 pb-12">
+      <div className="mb-12">
         <div className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30 mb-3">
           Live Results
         </div>
-        <h1 className="font-display font-bold text-[clamp(2rem,5vw,3.5rem)] leading-tight neon-pink mb-2">
+        <h1 className="font-display font-bold text-[clamp(2rem,5vw,3.5rem)] leading-tight neon-pink mb-3">
           leaderboard
         </h1>
         <p className="text-sm text-white/40 leading-relaxed">
@@ -124,7 +124,7 @@ export default function LeaderboardPage() {
       </div>
 
       {/* Category tabs */}
-      <div className="flex gap-3 overflow-x-auto pb-4 mb-8 -mx-2 px-2">
+      <div className="flex gap-3 overflow-x-auto pb-4 mb-10 -mx-2 px-2">
         {POLL_CATEGORIES.map(cat => (
           <button
             key={cat.id}
@@ -146,7 +146,7 @@ export default function LeaderboardPage() {
       </div>
 
       {/* View mode toggles */}
-      <div className="flex gap-2 mb-8">
+      <div className="flex gap-3 mb-10">
         {([
           { mode: 'bar' as const, label: 'Bar Chart' },
           { mode: 'pie' as const, label: 'Pie Chart' },
@@ -184,11 +184,11 @@ export default function LeaderboardPage() {
       </div>
 
       {/* Visualization */}
-      <div className="glass-card p-6 mb-8">
-        <h2 className="font-bold text-sm mb-1 flex items-center gap-2">
+      <div className="glass-card p-8 mb-10">
+        <h2 className="font-bold text-base mb-2 flex items-center gap-2">
           <span>{activeCat.icon}</span> {activeCat.name}
         </h2>
-        <p className="text-xs text-white/30 mb-6">{activeCat.description}</p>
+        <p className="text-xs text-white/30 mb-8">{activeCat.description}</p>
 
         <div className="w-full h-[350px] md:h-[400px]">
           {viewMode === 'bar' && (
@@ -330,11 +330,11 @@ export default function LeaderboardPage() {
       )}
 
       {/* Ranked list */}
-      <div className="max-w-2xl">
-        <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30 mb-4">
+      <div className="max-w-4xl">
+        <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30 mb-6">
           Rankings &mdash; {activeCat.name}
         </h3>
-        <div className="grid gap-4 stagger-children">
+        <div className="grid gap-5 stagger-children">
           {chartData.map((d, i) => {
             const participant = PARTICIPANTS.find(p => p.id === d.id)!
             return (

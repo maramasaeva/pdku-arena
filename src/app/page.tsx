@@ -56,11 +56,11 @@ export default function Home() {
         <h2 className="font-display font-bold text-[clamp(2rem,5vw,3.5rem)] leading-tight neon-cyan mb-3">
           8 ways to judge
         </h2>
-        <p className="text-sm text-white/40 max-w-md mb-12 leading-relaxed">
+        <p className="text-sm text-white/40 max-w-md mb-14 leading-relaxed">
           Vote in every category, every day. Your voice shapes the leaderboard.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {POLL_CATEGORIES.map(cat => (
             <Link
               key={cat.id}
@@ -87,11 +87,11 @@ export default function Home() {
         <h2 className="font-display font-bold text-[clamp(2rem,5vw,3.5rem)] leading-tight neon-pink mb-3">
           who enters the arena?
         </h2>
-        <p className="text-sm text-white/40 max-w-md mb-12 leading-relaxed">
+        <p className="text-sm text-white/40 max-w-md mb-14 leading-relaxed">
           {PARTICIPANTS.length} creators enter the arena. July 2026, Berkeley.
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
           {PARTICIPANTS.map((p, i) => (
             <button
               key={p.id}
@@ -139,11 +139,11 @@ export default function Home() {
             { title: 'Vote daily', desc: 'Pick your favorites across all 8 categories. Come back every day as the dynamics shift.' },
             { title: 'Watch the charts', desc: 'Real-time visualizations track public sentiment over the entire month. See if the jury agrees.' },
           ].map((step, i) => (
-            <div key={i} className="glass-card p-7 pt-12 relative">
-              <div className="absolute -top-4 left-7 font-mono font-extrabold text-3xl neon-cyan">
+            <div key={i} className="glass-card p-7 pt-14 relative mt-4">
+              <div className="absolute -top-5 left-7 font-mono font-extrabold text-4xl neon-cyan">
                 {i + 1}
               </div>
-              <h3 className="font-bold text-base mb-2">{step.title}</h3>
+              <h3 className="font-bold text-base mb-3">{step.title}</h3>
               <p className="text-sm text-white/40 leading-relaxed">{step.desc}</p>
             </div>
           ))}

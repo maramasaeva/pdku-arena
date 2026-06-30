@@ -111,12 +111,12 @@ export default function VotePage() {
   const activeCat = POLL_CATEGORIES.find(c => c.id === activeCategory)!
 
   return (
-    <div className="min-h-screen py-12">
-      <div className="mb-10">
+    <div className="min-h-screen pt-16 pb-12">
+      <div className="mb-12">
         <div className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30 mb-3">
           Daily Polls
         </div>
-        <h1 className="font-display font-bold text-[clamp(2rem,5vw,3.5rem)] leading-tight neon-cyan mb-2">
+        <h1 className="font-display font-bold text-[clamp(2rem,5vw,3.5rem)] leading-tight neon-cyan mb-3">
           cast your vote
         </h1>
         <p className="text-sm text-white/40 leading-relaxed">
@@ -125,7 +125,7 @@ export default function VotePage() {
       </div>
 
       {/* Category tabs */}
-      <div className="flex gap-3 overflow-x-auto pb-4 mb-10 -mx-2 px-2">
+      <div className="flex gap-3 overflow-x-auto pb-4 mb-12 -mx-2 px-2">
         {POLL_CATEGORIES.map(cat => (
           <button
             key={cat.id}
@@ -146,8 +146,8 @@ export default function VotePage() {
       </div>
 
       {/* Active category */}
-      <div className="mb-8">
-        <h2 className="font-bold text-xl mb-2 flex items-center gap-3">
+      <div className="mb-10">
+        <h2 className="font-bold text-xl mb-3 flex items-center gap-3">
           <span className="text-2xl">{activeCat.icon}</span>
           {activeCat.name}
         </h2>
@@ -160,7 +160,7 @@ export default function VotePage() {
       </div>
 
       {/* Participant voting list */}
-      <div className="grid gap-4 max-w-2xl stagger-children">
+      <div className="grid gap-5 max-w-4xl stagger-children">
         {PARTICIPANTS
           .map(p => ({
             participant: p,
