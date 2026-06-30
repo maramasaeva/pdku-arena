@@ -12,7 +12,7 @@ export const PARTICIPANTS: Participant[] = [
   { id: 'p-7', name: 'Becka', bio: 'From Philadelphia. Yoga teacher, singing teacher. Making AI content for non-technical audiences.', photo_url: '', socials: {} },
   { id: 'p-8', name: 'Tyler Alterman', bio: 'Based in NYC. Novelist, contact improv dancer, community builder at Fractal NYC.', photo_url: 'https://unavatar.io/x/tyleralterman', socials: { website: 'http://tyleralterman.com' } },
   { id: 'p-9', name: 'Eugene', bio: 'Social butterfly, 23. Into nuance, behavioral biology, and fighting for people left behind.', photo_url: 'https://unavatar.io/x/eugene_affirmative', socials: { instagram: 'eugene_affirmative' } },
-  { id: 'p-10', name: 'Aaron Silverbook', bio: 'Shared website only, no detailed intro.', photo_url: '', socials: { website: 'http://AaronSilverbook.com' } },
+  { id: 'p-10', name: 'Aaron Silverbook', bio: '', photo_url: '', socials: { website: 'http://AaronSilverbook.com' } },
   { id: 'p-11', name: 'KT', bio: 'Based in Budapest. Human psychology, group dynamics. Cozy introvert vibes.', photo_url: '', socials: {} },
   { id: 'p-13', name: 'Isabel', bio: 'From Australia, based in Singapore. Creative technologist. Built napole0n.ai.', photo_url: '', socials: { instagram: 'artificial.isabel', website: 'https://napole0n.ai' } },
   { id: 'p-14', name: 'Jessiah', bio: 'From Mendocino, CA. Former English lit teacher, now data science. Life coach and basketball coach.', photo_url: 'https://unavatar.io/x/jamellott23', socials: { instagram: 'jamellott23', website: 'http://gensilverjess.com' } },
