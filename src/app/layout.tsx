@@ -5,10 +5,10 @@ import BlobBackground from '@/components/BlobBackground'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'pdku:arena — vote for your favorites',
+  title: 'pdku:arena // vote for your favorites',
   description: 'Reality TV style polling for plzdontkillus. Track public sentiment, vote daily, see who the audience loves.',
   openGraph: {
-    title: 'pdku:arena — the people\'s court',
+    title: 'pdku:arena // the people\'s court',
     description: 'Vote daily. Track sentiment. See who survives.',
     type: 'website',
   },

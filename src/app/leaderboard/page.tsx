@@ -332,7 +332,7 @@ export default function LeaderboardPage() {
       {/* Ranked list */}
       <div className="max-w-4xl">
         <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30 mb-6">
-          Rankings &mdash; {activeCat.name}
+          Rankings // {activeCat.name}
         </h3>
         <div className="grid gap-5 stagger-children">
           {chartData.map((d, i) => {

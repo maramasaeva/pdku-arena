@@ -14,7 +14,7 @@ export default function Home() {
       {/* Hero */}
       <section className="min-h-[90vh] flex flex-col items-center justify-center text-center py-28">
         <div className="font-mono text-xs tracking-[0.25em] uppercase text-neon-teal/60 mb-8">
-          plzdontkillus &mdash; berkeley, july 2026
+          plzdontkillus // berkeley, july 2026
         </div>
 
         <h1 className="font-display font-bold text-[clamp(3.5rem,12vw,10rem)] leading-[0.95] tracking-tighter mb-8">
@@ -25,9 +25,9 @@ export default function Home() {
         </h1>
 
         <p className="text-[clamp(1rem,2vw,1.3rem)] font-light max-w-lg leading-relaxed text-white/50 mb-6">
-          The <strong className="font-semibold text-neon-cyan">people&apos;s court</strong> decides.
+          The <strong className="font-semibold text-neon-cyan">people&apos;s court</strong>{' '}decides.
           Vote daily. Track sentiment. See who the audience loves
-          &mdash; and whether the <em className="text-neon-pink font-normal">jury</em> agrees.
+          and whether the <em className="text-neon-pink font-normal">jury</em> agrees.
         </p>
 
         <div className="font-mono text-xs tracking-[0.15em] uppercase text-neon-green/50 mb-12">
