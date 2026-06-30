@@ -14,7 +14,7 @@ export default function Footer() {
       <p className="mt-3 text-white/10">berkeley, ca // july 2026</p>
       <p className="mt-4 text-white/25">
         made by{' '}
-        <Link href="/leaderboard" className="text-neon-cyan/60 hover:text-neon-cyan transition-colors">
+        <Link href="/leaderboard?profile=p-12" className="text-neon-cyan/60 hover:text-neon-cyan transition-colors">
           Messier
         </Link>
       </p>

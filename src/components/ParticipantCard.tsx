@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { Participant } from '@/lib/types'
 
 interface Props {
@@ -23,6 +24,8 @@ export default function ParticipantCard({
   compact,
   onProfileClick,
 }: Props) {
+  const [imgFailed, setImgFailed] = useState(false)
+
   return (
     <div className={`glass-card ${compact ? 'p-4' : 'p-5 sm:p-6'} relative group`}>
       {rank !== undefined && (
@@ -36,15 +39,16 @@ export default function ParticipantCard({
           onClick={onProfileClick}
           className={`${compact ? 'w-12 h-12' : 'w-16 h-16'} rounded-xl overflow-hidden border-2 border-white/10 group-hover:border-neon-cyan/40 transition-colors flex-shrink-0 bg-white/5 ${onProfileClick ? 'cursor-pointer' : ''}`}
         >
-          {participant.photo_url ? (
+          {participant.photo_url && !imgFailed ? (
             <img
               src={participant.photo_url}
               alt={participant.name}
               className="w-full h-full object-cover"
+              onError={() => setImgFailed(true)}
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-2xl text-white/20">
-              ?
+            <div className="w-full h-full flex items-center justify-center text-lg font-bold text-white/20 font-mono">
+              {participant.name.charAt(0)}
             </div>
           )}
         </div>

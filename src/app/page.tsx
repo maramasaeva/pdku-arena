@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import Link from 'next/link'
 import { PARTICIPANTS, POLL_CATEGORIES } from '@/lib/data'
 import { Participant } from '@/lib/types'
@@ -8,6 +8,10 @@ import ProfileModal from '@/components/ProfileModal'
 
 export default function Home() {
   const [selectedParticipant, setSelectedParticipant] = useState<Participant | null>(null)
+  const [failedImgs, setFailedImgs] = useState<Set<string>>(new Set())
+  const onImgError = useCallback((id: string) => {
+    setFailedImgs(prev => new Set(prev).add(id))
+  }, [])
 
   return (
     <div className="min-h-screen">
@@ -99,11 +103,11 @@ export default function Home() {
               className="glass-card p-4 text-center group cursor-pointer text-left"
             >
               <div className="w-14 h-14 mx-auto rounded-lg overflow-hidden border-2 border-white/10 group-hover:border-neon-cyan/40 transition-colors bg-white/5 mb-3">
-                {p.photo_url ? (
-                  <img src={p.photo_url} alt={p.name} className="w-full h-full object-cover" />
+                {p.photo_url && !failedImgs.has(p.id) ? (
+                  <img src={p.photo_url} alt={p.name} className="w-full h-full object-cover" onError={() => onImgError(p.id)} />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-lg text-white/15 font-mono">
-                    {i + 1}
+                  <div className="w-full h-full flex items-center justify-center text-lg font-bold text-white/15 font-mono">
+                    {p.name.charAt(0)}
                   </div>
                 )}
               </div>

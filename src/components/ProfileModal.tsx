@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { Participant } from '@/lib/types'
 
 interface Props {
@@ -27,6 +28,7 @@ function getSocialUrl(key: string, value: string): string {
 }
 
 export default function ProfileModal({ participant, onClose }: Props) {
+  const [imgFailed, setImgFailed] = useState(false)
   const socialEntries = Object.entries(participant.socials).filter(([, v]) => v)
 
   return (
@@ -45,11 +47,11 @@ export default function ProfileModal({ participant, onClose }: Props) {
         {/* Avatar */}
         <div className="flex flex-col items-center mb-6">
           <div className="w-24 h-24 rounded-2xl overflow-hidden border-2 border-white/10 bg-white/5 mb-4">
-            {participant.photo_url ? (
-              <img src={participant.photo_url} alt={participant.name} className="w-full h-full object-cover" />
+            {participant.photo_url && !imgFailed ? (
+              <img src={participant.photo_url} alt={participant.name} className="w-full h-full object-cover" onError={() => setImgFailed(true)} />
             ) : (
-              <div className="w-full h-full flex items-center justify-center text-4xl text-white/15 font-mono">
-                ?
+              <div className="w-full h-full flex items-center justify-center text-3xl font-bold text-white/15 font-mono">
+                {participant.name.charAt(0)}
               </div>
             )}
           </div>

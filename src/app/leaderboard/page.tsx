@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { PARTICIPANTS, POLL_CATEGORIES, NEON_COLORS } from '@/lib/data'
 import { supabase } from '@/lib/supabase'
 import ParticipantCard from '@/components/ParticipantCard'
@@ -15,6 +16,15 @@ import {
 type ViewMode = 'bar' | 'pie' | 'trend'
 
 export default function LeaderboardPage() {
+  return (
+    <Suspense>
+      <LeaderboardContent />
+    </Suspense>
+  )
+}
+
+function LeaderboardContent() {
+  const searchParams = useSearchParams()
   const [activeCategory, setActiveCategory] = useState(POLL_CATEGORIES[0].id)
   const [viewMode, setViewMode] = useState<ViewMode>('bar')
   const [results, setResults] = useState<Record<string, Record<string, number>>>({})
@@ -26,6 +36,14 @@ export default function LeaderboardPage() {
     loadResults()
     loadTrendData()
   }, [])
+
+  useEffect(() => {
+    const profileId = searchParams.get('profile')
+    if (profileId) {
+      const p = PARTICIPANTS.find(x => x.id === profileId)
+      if (p) setSelectedProfile(p)
+    }
+  }, [searchParams])
 
   async function loadResults() {
     try {
