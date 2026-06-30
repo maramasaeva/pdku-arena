@@ -68,10 +68,8 @@ export default function VotePage() {
 
   async function castVote(categoryId: string, participantId: string) {
     if (!user) {
-      await supabase.auth.signInWithOAuth({
-        provider: 'google',
-        options: { redirectTo: `${window.location.origin}/auth/callback` },
-      })
+      // Nav's login modal handles auth — scroll up to prompt them
+      window.scrollTo({ top: 0, behavior: 'smooth' })
       return
     }
 
@@ -181,15 +179,7 @@ export default function VotePage() {
       {!user && (
         <div className="mt-10 text-center">
           <p className="text-white/30 text-sm mb-4">Sign in to cast your votes</p>
-          <button
-            onClick={() => supabase.auth.signInWithOAuth({
-              provider: 'google',
-              options: { redirectTo: `${window.location.origin}/auth/callback` },
-            })}
-            className="glow-btn"
-          >
-            Sign in with Google
-          </button>
+          <p className="text-xs text-white/20">Use the &ldquo;Sign in to Vote&rdquo; button in the top nav</p>
         </div>
       )}
     </div>
