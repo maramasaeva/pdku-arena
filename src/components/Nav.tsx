@@ -27,13 +27,27 @@ export default function Nav() {
     e.preventDefault()
     if (!email.trim()) return
     setLoginState('sending')
-    const { error } = await supabase.auth.signInWithOtp({
-      email: email.trim(),
-      options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
-    })
-    if (!error) {
-      setLoginState('sent')
-    } else {
+    try {
+      const res = await fetch('/api/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim() }),
+      })
+      const data = await res.json()
+      if (!res.ok || !data.token_hash) {
+        setLoginState('idle')
+        return
+      }
+      const { error } = await supabase.auth.verifyOtp({
+        token_hash: data.token_hash,
+        type: 'magiclink',
+      })
+      if (!error) {
+        setLoginState('sent')
+      } else {
+        setLoginState('idle')
+      }
+    } catch {
       setLoginState('idle')
     }
   }
@@ -137,10 +151,10 @@ export default function Nav() {
             {loginState === 'sent' ? (
               <div>
                 <p className="text-sm text-neon-green mb-2">
-                  Magic link sent!
+                  You&apos;re in!
                 </p>
                 <p className="text-xs text-white/40">
-                  Check <strong className="text-white/60">{email}</strong> for a login link. Click it to start voting.
+                  Signed in as <strong className="text-white/60">{email}</strong>. Redirecting to vote...
                 </p>
               </div>
             ) : (
