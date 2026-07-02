@@ -4,7 +4,6 @@ import { useState, useEffect, useMemo, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { PARTICIPANTS, POLL_CATEGORIES, NEON_COLORS } from '@/lib/data'
 import { supabase } from '@/lib/supabase'
-import ParticipantCard from '@/components/ParticipantCard'
 import ProfileModal from '@/components/ProfileModal'
 import type { Participant } from '@/lib/types'
 import {
@@ -112,7 +111,7 @@ function LeaderboardContent() {
     }
   }
 
-  const chartData = useMemo(() => {
+  const allRanked = useMemo(() => {
     const catResults = results[activeCategory] || {}
     const total = Object.values(catResults).reduce((a, b) => a + b, 0)
     return PARTICIPANTS
@@ -124,6 +123,8 @@ function LeaderboardContent() {
       }))
       .sort((a, b) => b.votes - a.votes)
   }, [results, activeCategory])
+
+  const chartData = useMemo(() => allRanked.slice(0, 10), [allRanked])
 
   const activeCat = POLL_CATEGORIES.find(c => c.id === activeCategory)!
 
@@ -208,16 +209,16 @@ function LeaderboardContent() {
         </h2>
         <p className="text-xs text-white/30 mb-8">{activeCat.description}</p>
 
-        <div className="w-full h-[350px] md:h-[400px]">
+        <div className="w-full h-[420px] md:h-[480px]">
           {viewMode === 'bar' && (
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={chartData} layout="vertical" margin={{ left: 60, right: 20, top: 5, bottom: 5 }}>
+              <BarChart data={chartData} layout="vertical" margin={{ left: 10, right: 20, top: 5, bottom: 5 }}>
                 <XAxis type="number" tick={{ fill: 'rgba(255,255,255,0.4)', fontSize: 11 }} />
                 <YAxis
                   type="category"
                   dataKey="name"
-                  tick={{ fill: 'rgba(255,255,255,0.6)', fontSize: 12 }}
-                  width={55}
+                  tick={{ fill: 'rgba(255,255,255,0.7)', fontSize: 13 }}
+                  width={130}
                 />
                 <Tooltip
                   contentStyle={{
@@ -257,7 +258,7 @@ function LeaderboardContent() {
                   innerRadius="45%"
                   strokeWidth={2}
                   stroke="rgba(10,10,15,0.8)"
-                  label={({ name, percent }) => `${name}: ${((percent ?? 0) * 100).toFixed(1)}%`}
+                  label={({ name, percent }) => `${name} ${((percent ?? 0) * 100).toFixed(0)}%`}
                 >
                   {chartData.map((_, i) => (
                     <Cell key={i} fill={NEON_COLORS[i % NEON_COLORS.length]} />
@@ -348,22 +349,53 @@ function LeaderboardContent() {
       )}
 
       {/* Ranked list */}
-      <div className="max-w-4xl">
-        <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30 mb-6">
-          Rankings // {activeCat.name}
+      <div className="max-w-3xl">
+        <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30 mb-4">
+          Full Rankings // {activeCat.name}
         </h3>
-        <div className="grid gap-5 stagger-children">
-          {chartData.map((d, i) => {
+        <div className="glass-card divide-y divide-white/[0.04]">
+          {allRanked.map((d, i) => {
             const participant = PARTICIPANTS.find(p => p.id === d.id)!
+            const isTop3 = i < 3
             return (
-              <ParticipantCard
+              <div
                 key={d.id}
-                participant={participant}
-                rank={i + 1}
-                percentage={d.pct}
-                compact
-                onProfileClick={() => setSelectedProfile(participant)}
-              />
+                onClick={() => setSelectedProfile(participant)}
+                className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-white/[0.03] transition-colors"
+              >
+                <span className={`font-mono text-sm w-8 text-right ${isTop3 ? 'font-bold neon-cyan' : 'text-white/30'}`}>
+                  {i + 1}
+                </span>
+                <div className="w-8 h-8 rounded-lg overflow-hidden border border-white/10 flex-shrink-0 bg-white/5">
+                  {participant.photo_url ? (
+                    <img src={participant.photo_url} alt="" className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-xs font-bold text-white/20 font-mono">
+                      {participant.name.charAt(0)}
+                    </div>
+                  )}
+                </div>
+                <span className={`text-sm flex-1 min-w-0 truncate ${isTop3 ? 'font-semibold text-white' : 'text-white/70'}`}>
+                  {participant.name}
+                </span>
+                <span className="font-mono text-xs text-white/40 w-14 text-right">
+                  {d.votes}
+                </span>
+                <div className="w-24 h-1.5 bg-white/5 rounded-full overflow-hidden hidden sm:block">
+                  <div
+                    className="h-full rounded-full"
+                    style={{
+                      width: `${d.pct}%`,
+                      background: isTop3
+                        ? 'linear-gradient(90deg, var(--neon-cyan), var(--neon-pink))'
+                        : 'rgba(255,255,255,0.15)',
+                    }}
+                  />
+                </div>
+                <span className={`font-mono text-xs w-12 text-right ${isTop3 ? 'neon-cyan font-bold' : 'text-white/30'}`}>
+                  {d.pct.toFixed(1)}%
+                </span>
+              </div>
             )
           })}
         </div>
