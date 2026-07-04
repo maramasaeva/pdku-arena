@@ -9,7 +9,7 @@ export const PARTICIPANTS: Participant[] = [
   { id: 'p-4', name: 'Michelle Huang', bio: 'Artist-researcher running an art collective nonprofit in rural Japan.', photo_url: '/avatars/michelle_huang.jpg', socials: { twitter: 'michellehuang42', website: 'https://michellekhuang.com/' } },
   { id: 'p-5', name: 'Matthew', bio: 'From Sydney, Australia. Uni student and PDKU player.', photo_url: '/avatars/matthew.jpg', socials: { instagram: 'matthew4244_', youtube: 'https://youtube.com/shorts/04voHXnLghY' } },
   { id: 'p-6', name: 'Savannah', bio: 'Based in Las Vegas. Short films, paintings, photography on mental health and AI ethics.', photo_url: '/avatars/savannah.jpg', socials: { instagram: 'savannah_raisor', website: 'https://savannahraisor.com/' } },
-  { id: 'p-7', name: 'Becka', bio: 'From Philadelphia. Yoga teacher, singing teacher. Making AI content for non-technical audiences.', photo_url: '', socials: {} },
+  { id: 'p-7', name: 'Becca', bio: 'From Philadelphia. Yoga teacher, singing teacher. Making AI content for non-technical audiences.', photo_url: '/avatars/becca.jpg', socials: {} },
   { id: 'p-8', name: 'Tyler Alterman', bio: 'Based in NYC. Novelist, contact improv dancer, community builder at Fractal NYC.', photo_url: '/avatars/tyler.jpg', socials: { website: 'http://tyleralterman.com' } },
   { id: 'p-9', name: 'Eugene', bio: 'Social butterfly, 23. Into nuance, behavioral biology, and fighting for people left behind.', photo_url: '/avatars/eugene.jpg', socials: { instagram: 'eugene_affirmative' } },
   { id: 'p-10', name: 'Aaron Silverbook', bio: '', photo_url: '/avatars/aaron.jpg', socials: { website: 'http://AaronSilverbook.com' } },
@@ -43,6 +43,14 @@ export const PARTICIPANTS: Participant[] = [
   { id: 'p-39', name: 'Josh', bio: 'Founded UBC AI safety group. AI governance research, now making TikToks about AI safety.', photo_url: '/avatars/josh.jpg', socials: { instagram: 'joshthor_', website: 'http://ubcaisafety.org' } },
   { id: 'p-41', name: 'Camden', bio: 'Based in Boston, 23. CS grad. Music producer (hyperpop/math-rock/metal), theater, improv.', photo_url: '/avatars/camden.jpg', socials: { instagram: 'camdenwyeth', youtube: 'https://youtu.be/iovJpHcXlxQ' } },
   { id: 'p-43', name: 'Loan (DD)', bio: 'From Vietnam, based in Seattle. ML forecasting at Google/Apple. 3D printing, yoga, aerial.', photo_url: '', socials: {} },
+  { id: 'p-44', name: 'Jennifer', bio: 'Artist and maker from Oakland. Physical objects, zero video experience. Learning from scratch.', photo_url: '', socials: {} },
+  { id: 'p-45', name: 'Evie', bio: 'From Latvia, based in NYC. Forbes 30 Under 30. Former lifestyle YouTuber, now AI/robotics content creator.', photo_url: '/avatars/evie.jpg', socials: { instagram: 'movieevelina', youtube: 'https://www.youtube.com/@nycgingergirl' } },
+  { id: 'p-46', name: 'Ali', bio: 'Backend SWE by day, content creator by night. Host of Threat Wire on Hak5 (1M subs). NYC-based. DJ, fashion, cybersecurity.', photo_url: '/avatars/ali.jpg', socials: { instagram: 'endingwithali', twitter: 'endingwithali', youtube: 'https://youtube.com/@hak5' } },
+  { id: 'p-47', name: 'conq', bio: 'Reader, writer, ETH Zurich AI student. Inkhaven alum. Substack essayist. New to video.', photo_url: '/avatars/conq.jpg', socials: { twitter: 'serialsevens', instagram: 'serial.sevens', substack: 'https://serialsevens.substack.com/', youtube: 'https://www.youtube.com/@serialsevens' } },
+  { id: 'p-48', name: 'Avalon', bio: '1.2M followers. BuzzFeed alum, worked with Amazon Video and Samsung. Star Wars Unlimited player. Vibe coder.', photo_url: '/avatars/avalon.jpg', socials: { instagram: 'avalonwarrenn' } },
+  { id: 'p-49', name: 'Xander', bio: 'From the UK. 200k+ followers. Runs Lore.Nerd (movies) and Xander Highcliffe (philosophy, virtue, self-improvement).', photo_url: '/avatars/xander.jpg', socials: { youtube: 'https://www.youtube.com/@lorenerd' } },
+  { id: 'p-50', name: 'Kyle', bio: 'From Boring, Oregon, lives in Berkeley. Contact improv dancer, meditator, monastery veteran. Coaching and community.', photo_url: '/avatars/kyle.jpg', socials: { substack: 'https://substack.com/@kyhu', website: 'https://kyhu.org' } },
+  { id: 'p-51', name: 'Maëlle', bio: 'Franco-American filmmaker. La Fémis grad (Paris). Film editing, animation, AI generation. Freelances for Future of Life Institute.', photo_url: '/avatars/maelle.jpg', socials: { website: 'http://bit.ly/3QUCKXM' } },
 ]
 
 export const POLL_CATEGORIES: PollCategory[] = [
@@ -51,7 +59,7 @@ export const POLL_CATEGORIES: PollCategory[] = [
   { id: 'most-likely-to-win', name: 'Most Likely to Win', slug: 'most-likely-to-win', description: 'Who do you think takes it all?', icon: '🏆', colorClass: 'poll-most-likely-to-win' },
   { id: 'best-vibes', name: 'Best Vibes', slug: 'best-vibes', description: 'The ultimate vibe check winner', icon: '✨', colorClass: 'poll-best-vibes' },
   { id: 'best-dressed', name: 'Best Dressed', slug: 'best-dressed', description: 'Serving looks on the daily', icon: '👗', colorClass: 'poll-best-dressed' },
-  { id: 'worst-dressed', name: 'Worst Dressed', slug: 'worst-dressed', description: 'Fashion crimes against humanity', icon: '🧦', colorClass: 'poll-worst-dressed' },
+  { id: 'most-funny', name: 'Most Funny', slug: 'most-funny', description: 'The one who keeps everyone laughing', icon: '😂', colorClass: 'poll-most-funny' },
   { id: 'most-chaotic', name: 'Most Chaotic', slug: 'most-chaotic', description: 'Pure unfiltered chaos energy', icon: '🔥', colorClass: 'poll-most-chaotic' },
   { id: 'god-empress', name: 'Most Likely to Seduce the Basilisk', slug: 'god-empress', description: 'And become god empress, obviously', icon: '👑', colorClass: 'poll-god-empress' },
 ]
