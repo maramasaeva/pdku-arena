@@ -33,7 +33,7 @@ export const PARTICIPANTS: Participant[] = [
   { id: 'p-29', name: 'Jeredino Lavagnino', bio: 'Retired blogger, aspiring video creator. Werner Herzog fan. Literary criticism & anime reviews.', photo_url: '/avatars/jeredino.jpg', socials: { substack: 'https://zatsuon.substack.com/', website: 'https://suboptimalism.neocities.org/' } },
   { id: 'p-30', name: 'Halina', bio: 'Born and raised in the Bay Area. Blockchain, decentralized governance. 70k followers.', photo_url: '/avatars/halina.jpg', socials: { twitter: 'halina_eth' } },
   { id: 'p-31', name: 'Josie', bio: 'Mexican-American from Alabama, based in Malaysia. Ex-software dev, content creator.', photo_url: '/avatars/josie.jpg', socials: { instagram: 'josiefiguresitout' } },
-  { id: 'p-32', name: 'Caitlin Yardley', bio: 'Based in London, from Canada. AI Safety comms (BlueDot, FLI). Posts as FutureBriefing.', photo_url: '/avatars/caitlin_y.jpg', socials: { twitter: 'YardleyCaitlin', instagram: 'futurebriefing' } },
+  { id: 'p-32', name: 'Future Briefing', bio: 'Based in London, from Canada. AI Safety comms (BlueDot, FLI). Posts as FutureBriefing.', photo_url: '/avatars/caitlin_y.jpg', socials: { twitter: 'YardleyCaitlin', instagram: 'futurebriefing' } },
   { id: 'p-33', name: 'Tess', bio: 'Lives in Berkeley. Gap year after Stanford PhD in civil engineering. Pivoting to AI safety.', photo_url: '/avatars/tess.jpg', socials: { twitter: 'thegartsy' } },
   { id: 'p-34', name: 'Tanner', bio: 'Geologist from Appalachian Ohio. Master\'s in paleoriver systems. Former Geometry Dash YouTuber.', photo_url: '/avatars/tanner.jpg', socials: { youtube: 'https://www.youtube.com/channel/UCbAOw00ldX5Gnb47e9SYqZg', substack: 'https://open.substack.com/pub/kenorland' } },
   { id: 'p-35', name: 'Oliver', bio: 'Based in LA. 3D motion graphics about AI, submits shorts to film festivals.', photo_url: '/avatars/oliver.jpg', socials: { youtube: 'https://youtu.be/E9763olM5tk' } },
@@ -51,6 +51,7 @@ export const PARTICIPANTS: Participant[] = [
   { id: 'p-49', name: 'Xander', bio: 'From the UK. 200k+ followers. Runs Lore.Nerd (movies) and Xander Highcliffe (philosophy, virtue, self-improvement).', photo_url: '/avatars/xander.jpg', socials: { youtube: 'https://www.youtube.com/@lorenerd' } },
   { id: 'p-50', name: 'Kyle', bio: 'From Boring, Oregon, lives in Berkeley. Contact improv dancer, meditator, monastery veteran. Coaching and community.', photo_url: '/avatars/kyle.jpg', socials: { substack: 'https://substack.com/@kyhu', website: 'https://kyhu.org' } },
   { id: 'p-51', name: 'Maëlle', bio: 'Franco-American filmmaker. La Fémis grad (Paris). Film editing, animation, AI generation. Freelances for Future of Life Institute.', photo_url: '/avatars/maelle.jpg', socials: { website: 'http://bit.ly/3QUCKXM' } },
+  { id: 'p-52', name: 'Johannes Rolshausen', bio: 'From Saarbrücken, Germany. Founder of evendsa, actor, Gen-AI security engineer. James Madison University alum.', photo_url: '', socials: { youtube: 'https://www.youtube.com/@gesichtsfelsen7544', website: 'https://evendsa.de' } },
 ]
 
 export const POLL_CATEGORIES: PollCategory[] = [
