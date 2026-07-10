@@ -54,6 +54,14 @@ export const PARTICIPANTS: Participant[] = [
   { id: 'p-52', name: 'Johannes Rolshausen', bio: 'From Saarbrücken, Germany. Founder of evendsa, actor, Gen-AI security engineer. James Madison University alum.', photo_url: '', socials: { youtube: 'https://www.youtube.com/@gesichtsfelsen7544', website: 'https://evendsa.de' } },
   { id: 'p-53', name: 'Net Loss', bio: 'YouTube creator.', photo_url: '', socials: { youtube: 'https://youtube.com/@net-loss' } },
   { id: 'p-54', name: 'Keltan', bio: '', photo_url: '', socials: { twitter: 'Actuallykeltan' } },
+  { id: 'p-55', name: 'Brian', bio: '', photo_url: '', socials: {} },
+  { id: 'p-56', name: 'Max Wolff-Merovick', bio: '', photo_url: '', socials: {} },
+  { id: 'p-57', name: 'Michel', bio: '', photo_url: '', socials: {} },
+  { id: 'p-58', name: 'Milo Kesteloot', bio: '', photo_url: '', socials: {} },
+  { id: 'p-59', name: 'Nick', bio: '', photo_url: '', socials: {} },
+  { id: 'p-60', name: 'Romy', bio: '', photo_url: '', socials: {} },
+  { id: 'p-61', name: 'Veronica Reinero', bio: '', photo_url: '', socials: {} },
+  { id: 'p-62', name: 'Vishal Vivek Prasad', bio: '', photo_url: '', socials: {} },
 ]
 
 export const POLL_CATEGORIES: PollCategory[] = [
